@@ -66,10 +66,13 @@ namespace Tracker {
         }
 
         _maxLap2 = raceData.LapsNb;
-        // Show only the information on multi lap maps.
-        if (_maxLap > 1 || _maxLap2 > 1){
-            _inGame = true;
+        // Only enable the plugin if the race actually has multiple laps.
+        bool isMultiLap = (_maxLap > 1 || _maxLap2 > 1);
+        if (!isMultiLap) {
+            _inGame = false;
+            return;
         }
+        _inGame = true;
 
         // Get all times at all checkpoints for player.
         auto cpTimes = racePlayer.CpTimes;
