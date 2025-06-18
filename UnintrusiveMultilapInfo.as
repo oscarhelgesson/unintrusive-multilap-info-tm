@@ -165,11 +165,11 @@ string format_time(uint64 total_milliseconds) {
     int hours = total_minutes / 60;
 
     if (hours > 0) {
-        return formatInt(hours) + ":" + formatInt(minutes) + ":" + formatInt(seconds) + ":" + formatInt(milliseconds, true);
+        return formatInt(hours) + ":" + formatInt(minutes) + ":" + formatInt(seconds) + "." + formatInt(milliseconds, true);
     } else if (minutes > 0) {
-        return formatInt(minutes) + ":" + formatInt(seconds) + ":" + formatInt(milliseconds, true);
+        return formatInt(minutes) + ":" + formatInt(seconds) + "." + formatInt(milliseconds, true);
     } else {
-        return formatInt(seconds) + ":" + formatInt(milliseconds, true);
+        return formatInt(seconds) + "." + formatInt(milliseconds, true);
     }
 }
 
